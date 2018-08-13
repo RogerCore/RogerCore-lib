@@ -1,70 +1,70 @@
 'use strict';
 
-var litecore = module.exports;
+var rogercore = module.exports;
 
 // module information
-litecore.version = 'v' + require('./package.json').version;
-litecore.versionGuard = function(version) {
+rogercore.version = 'v' + require('./package.json').version;
+rogercore.versionGuard = function(version) {
   if (version !== undefined) {
-    var message = 'More than one instance of litecore-lib found. ' +
-      'Please make sure to require litecore-lib and check that submodules do' +
-      ' not also include their own litecore-lib dependency.';
+    var message = 'More than one instance of rogercore-lib found. ' +
+      'Please make sure to require rogercore-lib and check that submodules do' +
+      ' not also include their own rogercore-lib dependency.';
     throw new Error(message);
   }
 };
-litecore.versionGuard(global._litecore);
-global._litecore = litecore.version;
+rogercore.versionGuard(global._rogercore);
+global._rogercore = rogercore.version;
 
 // crypto
-litecore.crypto = {};
-litecore.crypto.BN = require('./lib/crypto/bn');
-litecore.crypto.ECDSA = require('./lib/crypto/ecdsa');
-litecore.crypto.Hash = require('./lib/crypto/hash');
-litecore.crypto.Random = require('./lib/crypto/random');
-litecore.crypto.Point = require('./lib/crypto/point');
-litecore.crypto.Signature = require('./lib/crypto/signature');
+rogercore.crypto = {};
+rogercore.crypto.BN = require('./lib/crypto/bn');
+rogercore.crypto.ECDSA = require('./lib/crypto/ecdsa');
+rogercore.crypto.Hash = require('./lib/crypto/hash');
+rogercore.crypto.Random = require('./lib/crypto/random');
+rogercore.crypto.Point = require('./lib/crypto/point');
+rogercore.crypto.Signature = require('./lib/crypto/signature');
 
 // encoding
-litecore.encoding = {};
-litecore.encoding.Base58 = require('./lib/encoding/base58');
-litecore.encoding.Base58Check = require('./lib/encoding/base58check');
-litecore.encoding.BufferReader = require('./lib/encoding/bufferreader');
-litecore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
-litecore.encoding.Varint = require('./lib/encoding/varint');
+rogercore.encoding = {};
+rogercore.encoding.Base58 = require('./lib/encoding/base58');
+rogercore.encoding.Base58Check = require('./lib/encoding/base58check');
+rogercore.encoding.BufferReader = require('./lib/encoding/bufferreader');
+rogercore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
+rogercore.encoding.Varint = require('./lib/encoding/varint');
 
 // utilities
-litecore.util = {};
-litecore.util.buffer = require('./lib/util/buffer');
-litecore.util.js = require('./lib/util/js');
-litecore.util.preconditions = require('./lib/util/preconditions');
+rogercore.util = {};
+rogercore.util.buffer = require('./lib/util/buffer');
+rogercore.util.js = require('./lib/util/js');
+rogercore.util.preconditions = require('./lib/util/preconditions');
 
 // errors thrown by the library
-litecore.errors = require('./lib/errors');
+rogercore.errors = require('./lib/errors');
 
 // main bitcoin library
-litecore.Address = require('./lib/address');
-litecore.Block = require('./lib/block');
-litecore.MerkleBlock = require('./lib/block/merkleblock');
-litecore.BlockHeader = require('./lib/block/blockheader');
-litecore.HDPrivateKey = require('./lib/hdprivatekey.js');
-litecore.HDPublicKey = require('./lib/hdpublickey.js');
-litecore.Networks = require('./lib/networks');
-litecore.Opcode = require('./lib/opcode');
-litecore.PrivateKey = require('./lib/privatekey');
-litecore.PublicKey = require('./lib/publickey');
-litecore.Script = require('./lib/script');
-litecore.Transaction = require('./lib/transaction');
-litecore.URI = require('./lib/uri');
-litecore.Unit = require('./lib/unit');
+rogercore.Address = require('./lib/address');
+rogercore.Block = require('./lib/block');
+rogercore.MerkleBlock = require('./lib/block/merkleblock');
+rogercore.BlockHeader = require('./lib/block/blockheader');
+rogercore.HDPrivateKey = require('./lib/hdprivatekey.js');
+rogercore.HDPublicKey = require('./lib/hdpublickey.js');
+rogercore.Networks = require('./lib/networks');
+rogercore.Opcode = require('./lib/opcode');
+rogercore.PrivateKey = require('./lib/privatekey');
+rogercore.PublicKey = require('./lib/publickey');
+rogercore.Script = require('./lib/script');
+rogercore.Transaction = require('./lib/transaction');
+rogercore.URI = require('./lib/uri');
+rogercore.Unit = require('./lib/unit');
 
 // dependencies, subject to change
-litecore.deps = {};
-litecore.deps.bnjs = require('bn.js');
-litecore.deps.bs58 = require('bs58');
-litecore.deps.Buffer = Buffer;
-litecore.deps.elliptic = require('elliptic');
-litecore.deps.scryptsy = require('scryptsy');
-litecore.deps._ = require('lodash');
+rogercore.deps = {};
+rogercore.deps.bnjs = require('bn.js');
+rogercore.deps.bs58 = require('bs58');
+rogercore.deps.Buffer = Buffer;
+rogercore.deps.elliptic = require('elliptic');
+rogercore.deps.scryptsy = require('scryptsy');
+rogercore.deps._ = require('lodash');
 
 // Internal usage, exposed for testing/advanced tweaking
-litecore.Transaction.sighash = require('./lib/transaction/sighash');
+rogercore.Transaction.sighash = require('./lib/transaction/sighash');

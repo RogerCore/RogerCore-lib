@@ -1,5 +1,5 @@
 
 
-var litecoreTasks = require('litecore-build');
+var rogercoreTasks = require('rogercore-build');
 
-litecoreTasks('lib');
+rogercoreTasks('lib');
